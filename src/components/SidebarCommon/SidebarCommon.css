@@ -1,0 +1,63 @@
+.side-bar-common{
+    padding-top: 96px;
+    width: 280px;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 98;
+}
+
+
+.side-bar-common .box-sb-common{
+    background-color: #ffffff;
+    border-radius: 10px;
+    /* height: 600px; */
+    
+    
+    
+}
+
+
+/* Tuỳ chỉnh kiểu thanh cuộn */
+.side-bar-common .box-sb-common::-webkit-scrollbar {
+    width: 0px; /* Chiều rộng của thanh cuộn trên trình duyệt WebKit (Chrome, Safari, Edge) */
+}
+  
+.side-bar-common .box-sb-common::-webkit-scrollbar-thumb {
+    background-color: #888; /* Màu sắc của phần nền thanh cuộn */
+    border-radius: 5px; /* Bo tròn các góc của thanh cuộn */
+}
+
+.side-bar-common .box-sb-common::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Màu sắc của phần nền của thanh cuộn */
+}
+
+/* nav-caption */
+.side-bar-common .nav-caption .icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.side-bar-common .nav-caption .text-value{
+    font-weight: 500;
+    font-size: 1.05em;
+    transition: 0.3s;
+}
+
+.side-bar-common .nav-caption .nav-cap-item:hover{
+    color: #864af9 !important;
+}
+
+
+
+/* your group */
+
+.side-bar-common .your-group img{
+    width: 45px;
+}

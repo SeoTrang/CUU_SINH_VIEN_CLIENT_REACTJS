@@ -1,0 +1,20 @@
+#container-chat-null .box-chat-null{
+    /* width: 500px; */
+}
+
+#container-chat-null .mySwiper .swiper-wrapper{
+    /* width: 500px; */
+    max-width: 300px;
+}
+
+#container-chat-null .mySwiper .content-slider img{
+    width: 400px;
+    height: 310px;
+    object-fit: cover;
+}
+
+#container-chat-null .mySwiper .swiper-pagination {
+    position: initial;
+    margin: 32px auto;
+
+}

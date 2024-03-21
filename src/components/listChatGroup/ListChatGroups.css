@@ -1,0 +1,47 @@
+#list-chat-group .search{
+    padding: 15px 20px;
+}
+#list-chat-group .box-search {
+    border: 1px solid #eaedf0; /* Border mặc định khi không focus */
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #eaedf0;
+    border-radius: 5px;
+    
+  }
+  
+#list-chat-group .box-search:focus-within {
+    border: 1px solid #0091ff; /* Border khi focus vào bất kỳ phần tử con nào */
+}
+
+#list-chat-group .search .box-search input{
+    background-color: transparent;
+}
+
+#list-chat-group .search .box-search input:focus{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+#list-chat-group .avatar img{
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#list-chat-group .item-chat .box-item:hover{
+    background-color: #f3f5f6;
+}
+
+
+#list-chat-group .item-chat .box-item-active{
+    background-color: #e5efff;
+    transition: 0.2s;
+}
+
+#list-chat-group .item-chat .box-item-active:hover{
+    background-color: #e5efff;
+}

@@ -1,0 +1,18 @@
+#modal-user-reaction{
+
+}
+
+@media screen and (min-width: 768px){
+    .modal-user-reaction{
+        min-height: 50vh;
+        
+        overflow-y: scroll;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .modal-user-reaction{
+        min-height: 70vh;
+        overflow-y: scroll;
+    }
+}

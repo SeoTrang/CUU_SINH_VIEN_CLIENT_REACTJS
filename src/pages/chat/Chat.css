@@ -1,0 +1,12 @@
+
+#chat{
+    height: calc(100vh - 96px);
+}
+#chat .list-chat{
+    border-right: 1px solid #eee;
+    
+}
+
+#chat .container-chat{
+    
+}

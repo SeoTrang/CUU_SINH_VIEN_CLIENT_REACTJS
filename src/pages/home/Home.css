@@ -1,0 +1,35 @@
+#home{
+    /* min-height: 100vh; */
+}
+
+
+
+@media screen and (min-width: 1024px) {
+    #home .content-common{
+        width: calc(100% - 280px);
+        margin-left: 280px;
+        margin-right: 280px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #home .content-common{
+        width: 100%;
+        /* margin-left: 280px; */
+    }
+}
+
+@media screen and (max-width: 1336px) {
+    #option-right {
+        /* width: 100%; */
+        /* margin-left: 280px; */
+        display: none;
+        
+    }
+
+    #home .content-common{
+        /* width: calc(100% - 280px); */
+        /* margin-left: 280px; */
+        margin-right: 0px !important;
+    }
+}

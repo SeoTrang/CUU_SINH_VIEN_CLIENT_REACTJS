@@ -1,0 +1,56 @@
+#containerHome{
+    width: 100%;
+}
+
+/* @media screen and (min-width:1024px){
+    #containerHome{
+        width: calc(100% - 280px);
+    }
+} */
+
+#containerHome .container-home {
+    /* max-width: 960px; */
+}
+
+#containerHome .contaier-content-h{
+
+}
+
+#containerHome .contaier-content-h{
+    /* background-color: #ffffff; */
+}
+
+@media screen and (min-width:1024px){
+    #containerHome .contaier-content-h{
+        max-width: 660px;
+        /* background-color: green; */
+    }
+}
+
+@media screen and (max-width:1023px){
+    #containerHome .contaier-content-h{
+        width: 100%;
+        /* background-color: green; */
+    }
+}
+
+#containerHome .option-right{
+    max-width: 330px;
+    /* background-color: red; */
+}
+
+
+
+#containerHome .contaier-content-h .create-post .MuiOutlinedInput-notchedOutline{
+    border: none;
+}
+
+#containerHome .contaier-content-h .box-input-post{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#containerHome .contaier-content-h .box-input-post .input-field{
+    width: calc(100% - 30px);
+}
+

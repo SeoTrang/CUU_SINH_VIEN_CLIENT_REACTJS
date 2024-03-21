@@ -1,0 +1,26 @@
+.sidebar .avatar img{
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.sidebar{
+    font-size: 25px;
+}
+
+.sidebar .nav{
+    transition: 0.3s;
+}
+.sidebar .nav:hover{
+    background-color: #0000001a;
+}
+
+.sidebar .nav-active{
+    background-color: #006edc;
+}
+
+.sidebar .container-nav{
+    height: 90%;
+}
+
