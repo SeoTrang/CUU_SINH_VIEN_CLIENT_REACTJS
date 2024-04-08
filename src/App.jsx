@@ -18,6 +18,8 @@ const URL = "ws://localhost:8080/"; // Đảm bảo rằng URL ở đây phù h�
 
 // const socket = io.connect("http://localhost:5000");
 function App() {
+  const hello = "hello world";
+  const checkout = "checkout hello"
   const [isConnected, setIsConnected] = useState(socket.connected);
 
   const [fooEvents, setFooEvents] = useState([]);
