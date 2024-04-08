@@ -1,0 +1,9 @@
+.container-emoji{
+
+}
+
+@media screen and (max-width: 400px) {
+    .container-emoji{
+        right: 0;
+    }
+}

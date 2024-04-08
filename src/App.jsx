@@ -11,9 +11,15 @@ import './output.css'
 import RootRoutes from './routes/RootRoutes'
 import userAPI from './services/api/userAPI';
 
+import { io } from 'socket.io-client';
+
+const URL = "ws://localhost:8080/"; // Đảm bảo rằng URL ở đây phù hợp với cấu hình trong server.js
+
+
 // const socket = io.connect("http://localhost:5000");
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
+
   const [fooEvents, setFooEvents] = useState([]);
 
   const user = useSelector((state) => state.user.user);
@@ -22,12 +28,25 @@ function App() {
       socket.emit('user-info',user)
   },[user])
 
-  // useEffect(()=>{
-  //    async function fetchApi(){
-  //       const friend = await userAPI.getFriendRequestToYou();
-  //    }
-  //    fetchApi();
-  // },[]);
+  const [isConnectedWS, setIsConnectedWS] = useState(false);
+
+  useEffect(() => {
+    const socket = new WebSocket(URL);
+
+    socket.onopen = () => {
+      setIsConnectedWS(true);
+      // Gửi mã người dùng khi kết nối thành công
+      socket.send(JSON.stringify({ type: 'user-info', data: "trang" }));
+    };
+
+    socket.onclose = () => {
+      setIsConnectedWS(false);
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, []);
 
   // useEffect(() => {
   //   async function fetchData(){

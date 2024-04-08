@@ -92,6 +92,8 @@ const ContainerChat = ({ conversation }) => {
     };
   
     const handleSendMessage = async (message1,type) => {
+        console.log(message1);
+        console.log(type);
         socket.emit('room-message', { room: conversation, message: message1, user: user, type: type, userIds: userIds });
         scrollToBottom();
         // await messageAPI.create(
@@ -324,7 +326,7 @@ const ContainerChat = ({ conversation }) => {
                             className='w-full' type="text" placeholder='Nhập vào đây...' />
                         </div>
                         <div 
-                        onClick={handleSendMessage}
+                        onClick={() => {handleSendMessage([message],'text');}}
                         className="action-send">
                             <i class="fa-solid fa-paper-plane"></i>
                         </div>

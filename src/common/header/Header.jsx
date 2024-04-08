@@ -6,8 +6,11 @@ import logo from '../../assets/logo/logo2.svg';
 import './Header.css';
 import Cookies from 'js-cookie';
 import { fetchUserData } from '../../redux/actions/userAction';
+import notificationAPI from '../../services/api/notificationAPI';
 const Header = () => {
 
+    const [dataNotification,setDataNotification] = useState();
+    const [notificationClick, setNotificationClick] = useState(false);
     const dispatch = useDispatch();
     // console.log(user);
     const user = useSelector((state) => state.user.user);
@@ -22,7 +25,19 @@ const Header = () => {
         if(accessTokenTemp && !user){
             dispatch(fetchUserData());
         }
+
+        async function fecthData(){
+            const result = await notificationAPI.getAllNotifications();
+            if(result) setDataNotification(result);
+        }
+
+        fecthData();
     },[]);
+
+    const handleNotificationClick = () => {
+        setNotificationClick(!notificationClick);
+    }
+    
     return (
         <div id='header' className=' w-full'>
             <div className="container-common hidden lg:block header-pc  items-center h-full">
@@ -76,10 +91,73 @@ const Header = () => {
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </Link>
                             </div>
-                            <div className="menu-item text-end text-orange-500">
-                                <Link>
-                                    <i class="fa-regular fa-bell"></i>
+                            <div className="menu-item text-end notification">
+                                <Link onClick={handleNotificationClick}>
+                                    {
+                                        notificationClick ?
+                                        <i class="fa-solid fa-bell text-orange-500"></i>
+                                        :
+                                        <i class="fa-regular fa-bell text-orange-500"></i>
+
+                                    }
                                 </Link>
+
+                                {
+                                    notificationClick ?
+                                    <div className="notification-box text-start p-3 rounded-md">
+                                    <div className="section-top flex justify-between">
+                                        <div className="title text-2xl font-medium">
+                                            Thông báo
+                                        </div>
+                                        <div className='option-top text-gray-500 text-xl'>
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </div>
+                                    </div>
+
+                                    <div className="notification-content text-base mt-3">
+                                        {
+                                            dataNotification && 
+                                            dataNotification.map((value) => {
+                                                return (
+                                                    <Link className="item-notification flex items-center mb-2">
+                                                        <div className="avatar-left">
+                                                            <div className="avatar-common">
+                                                                <div className="img">
+                                                                    <img src={import.meta.env.VITE_API_URL + value.actor_avatar} alt="" />
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="notification-right ml-2">
+                                                            <div className="notification-type">
+                                                                <span className='font-medium'>
+                                                                    {
+                                                                        value.actor_name
+                                                                    }
+                                                                </span>
+                                                                <span className='ml-1'>
+                                                                    {
+                                                                        value.notification_type
+                                                                    }
+                                                                </span>
+                                                            </div>
+                                                            <div className="time text-xs">
+                                                                4 giờ trước
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                )
+                                            })
+                                        }
+                                        
+                                     
+                                    </div>
+                                </div>
+                                :
+                                null
+                                    
+                                }
                             </div>
                             <div className="menu-item text-end text-blue-500">
                                 <Link to={'/chat'}>

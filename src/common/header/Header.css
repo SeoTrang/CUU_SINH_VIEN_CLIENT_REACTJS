@@ -127,3 +127,23 @@
 /* .sticky {
     padding-top: 102px;
 } */
+
+
+/* notification */
+#header .header-pc{
+    position: relative;
+}
+
+
+#header .header-pc .notification-box{
+    position: absolute;
+    background-color: #ffffff;
+    width: 360px;
+    max-width: 360px;
+    top: 60px;
+    right: 15px;
+    box-shadow: 0px 0px 7px 1px #ccc;
+    max-height: 90vh;
+    overflow-y: scroll;
+    color: #000000;
+}

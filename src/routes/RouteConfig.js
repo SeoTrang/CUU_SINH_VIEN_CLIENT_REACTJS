@@ -3,6 +3,7 @@ import HomeGroup from "../pages/HomeGroup/HomeGroup";
 import Login from "../pages/auth/login/Login";
 import Register from "../pages/auth/register/Register";
 import Chat from "../pages/chat/Chat";
+import DetailPost from "../pages/detailPost/DetailPost";
 import FileViewer from "../pages/fileViewer/FileViewer";
 import Friend from "../pages/friend/Friend";
 import Group from "../pages/group/Group";
@@ -60,6 +61,11 @@ const RouteConfig = [
     component: Friend,
     layout: true,
   },
+  {
+    path: "/detail-post/:postId",
+    component: DetailPost,
+    layout: true,
+  }
 ];
 
 export default RouteConfig;

@@ -6,7 +6,10 @@
 html{
     background-color: #ffffff !important;
 }
-
+.avatar-common .img{
+    width: 45px;
+    height: 45px;
+}
 .avatar-common img{
     width: 45px;
     height: 45px;
@@ -22,6 +25,13 @@ html{
 .avatar-md img{
     width: 30px;
     height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-base img{
+    width: 25px;
+    height: 25px;
     object-fit: cover;
     border-radius: 50%;
 }

@@ -1,0 +1,120 @@
+#containerHome{
+    width: 100%;
+}
+
+@media screen and (min-width:1337px){
+    #detail-post .container-home{
+        width: calc(100% - 315px);
+    }
+}
+
+#containerHome .container-home {
+    /* max-width: 960px; */
+}
+
+#detail-post .contaier-content-h{
+    margin: 0 auto;
+}
+
+#containerHome .contaier-content-h{
+    /* background-color: #ffffff; */
+}
+
+@media screen and (min-width:1024px){
+    #containerHome .contaier-content-h{
+        max-width: 660px;
+        /* background-color: green; */
+    }
+}
+
+@media screen and (max-width:1023px){
+    #containerHome .contaier-content-h{
+        width: 100%;
+        /* background-color: green; */
+    }
+}
+
+#containerHome .option-right{
+    max-width: 330px;
+    /* background-color: red; */
+}
+
+
+
+#containerHome .contaier-content-h .create-post .MuiOutlinedInput-notchedOutline{
+    border: none;
+}
+
+#containerHome .contaier-content-h .box-input-post{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#containeHome .contaier-content-h .box-input-post .input-field{
+    width: calc(100% - 30px);
+}
+
+
+
+/* #detail-post .user-left{
+    float: left;
+} */
+
+#detail-post .user-left {
+    flex: 0 0 auto; /* Không co giãn */
+    margin-right: 10px; /* Khoảng cách giữa hai phần tử */
+}
+
+#detail-post .box-input-right {
+    flex: 1 1 auto; /* Co giãn để lấp đầy không gian còn trống */
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+#detail-post .box-comment-right{
+    flex: 1 1 auto; /* Co giãn để lấp đầy không gian còn trống */
+    
+    
+    color: #050505;
+}
+
+#detail-post .box-comment-right .secction-top{
+    background-color: #f0f2f5;
+    color: #050505;
+    padding: 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#detail-post .box-comment-right .secction-top .user-name,
+#detail-post .box-comment-right .secction-topm .comment {
+  display: block;
+}
+
+
+
+#detail-post .box-input-right textarea{
+    outline: none;
+    
+}
+
+#detail-post .option-bottom i{
+    color: #807878;
+    cursor: pointer;
+}
+
+#detail-post .option-bottom .option-left .option:hover i{
+    color: #05f;
+
+}
+
+#detail-post .option-bottom .valid i{
+    color: #2563eb;
+}
+
+/* #detail-post .preview-img img{
+    width: ;
+} */
+

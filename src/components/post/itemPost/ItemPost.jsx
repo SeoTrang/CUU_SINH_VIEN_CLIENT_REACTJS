@@ -61,7 +61,7 @@ const ItemPost = ({post_item}) => {
     },[post]);
     return (
         post ?
-        <div className='post mt-3 mr-1 pt-5 pb-5 pl-4 pr-4 bg-white shadow-xss rounded-md'>
+        <div className='post mt-3 mr-1 pt-5 pb-5 pl-4 pr-4 bg-white shadow-xss rounded-md' style={{marginRight: 0}}>
             <div className="post-top">
                 <div className="w-full flex justify-between items-center">
                     <div className="user flex items-center">
@@ -151,7 +151,7 @@ const ItemPost = ({post_item}) => {
                             </div>
                         </div>
 
-                        <div className="comment flex items-center ml-3">
+                        <Link to={'/detail-post/'+post.id} className="comment flex items-center ml-3">
                             <div className="heart text-xl mr-2">
                                 <i class="fa-regular fa-comment"></i>
                             </div>
@@ -159,7 +159,7 @@ const ItemPost = ({post_item}) => {
                                 {/* <i class="fa-solid fa-heart"></i> */}
                                 {post.lengthComment} Bình luận
                             </div>
-                        </div>
+                        </Link>
                     </div>
                     <div className="action-right ">
                         <div className="action-share flex items-center  ">
