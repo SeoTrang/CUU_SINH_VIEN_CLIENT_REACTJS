@@ -10,7 +10,9 @@ import renderMessageContent from './RenderMessageContent';
 import conversationAPI from '../../services/api/conversationAPI';
 import messageAPI from '../../services/api/messageAPI';
 import handleSendFile from './handleSendFile';
+import useWebSocket from '../../sockets/socket_ws';
 const ContainerChat = ({ conversation }) => {
+    // const socket_ws = useWebSocket();
     const [room, setRoom] = useState();
     const [users, setUsers] = useState();
     const [userIds, setUserIds] = useState();
@@ -26,6 +28,7 @@ const ContainerChat = ({ conversation }) => {
     // },[]);
   
     useEffect(() => {
+        
         async function fetchData() {
             const dataUsers = await conversationAPI.getUserFromConversationID(conversation);
             if (dataUsers) {
@@ -49,18 +52,19 @@ const ContainerChat = ({ conversation }) => {
     
         // Clean up previous event listener before adding a new one
         socket.off('room-message');
-    
         // Register the event listener
         socket.on(`room-message`, (data) => {
-            console.log(data.data_mess);
+            console.log("data :");
+            console.log(data);
             console.log(socket.id);
-
-            const isCurrentUser = (data.data_mess.sender == socket.id);
-            data.data_mess.me = isCurrentUser;
-    
+            let tempData = data;
+            const isCurrentUser = (data.sender == socket.id);
+            tempData.me = isCurrentUser;
+            console.log("prevdata :");
+            console.log(dataMes);
             // Cập nhật state dataMes bằng cách thêm phần tử mới vào mảng
-            setDataMes((prevDataMes) => [...prevDataMes, data.data_mess]);
-            console.log(isCurrentUser);
+            setDataMes((prevDataMes) => [...prevDataMes, tempData]);
+            // console.log(isCurrentUser);
             scrollToBottom();
         });
 
@@ -92,6 +96,11 @@ const ContainerChat = ({ conversation }) => {
     };
   
     const handleSendMessage = async (message1,type) => {
+        // if (socket_ws && socket_ws.readyState === WebSocket.OPEN) {
+        //     socket_ws.send(JSON.stringify({ type: 'message', content: message1[0] }));
+        //     setMessage(''); // Xóa nội dung tin nhắn sau khi gửi
+        //   }
+
         console.log(message1);
         console.log(type);
         socket.emit('room-message', { room: conversation, message: message1, user: user, type: type, userIds: userIds });
@@ -152,6 +161,7 @@ const ContainerChat = ({ conversation }) => {
         const selectedFiles = Array.from(e.target.files);
         setImgInput(selectedFiles);
         let result = await handleSendFile(selectedFiles);
+        console.log(result);
         if(result){
             handleSendMessage(result,'img');
         }
@@ -183,7 +193,7 @@ const ContainerChat = ({ conversation }) => {
                         ) : (
                         users &&
                         users
-                            .filter((user1) => user1.id !== user?.id)
+                            .filter((user1) => user1?.id !== user?.id)
                             .map((user2) => (
                             <img
                                 key={user2.id}
@@ -204,7 +214,7 @@ const ContainerChat = ({ conversation }) => {
                         ) : (
                         users &&
                         users
-                            .filter((user1) => user1.id !== user.id)
+                            .filter((user1) => user1.id !== user?.id)
                             .map((user2) => (
                                 user2.user_name
                             ))

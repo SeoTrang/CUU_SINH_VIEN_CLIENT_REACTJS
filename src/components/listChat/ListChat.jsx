@@ -78,7 +78,7 @@ const ListChat = ({ conversation }) => {
         socket.on('notify-room-message', (data) => {
             console.log(data);
             // console.log(socket.id);
-            setLatestMessage(data.data_mess);
+            setLatestMessage(data);
 
             // const isCurrentUser = (data.data_mess.sender == socket.id);
             // data.data_mess.me = isCurrentUser;

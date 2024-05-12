@@ -168,7 +168,7 @@ const Header = () => {
                                 <Link>
                                     <div className="user ">
                                         <div className="img">
-                                            <img src="https://uitheme.net/sociala/images/profile-4.png" alt="" />
+                                            <img className='rounded-full' src={user && import.meta.env.VITE_API_URL + user?.avatar} alt="" />
                                         </div>
                                     </div>
                                 </Link>

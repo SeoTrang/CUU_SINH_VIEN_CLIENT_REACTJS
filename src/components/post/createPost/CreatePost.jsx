@@ -7,6 +7,7 @@ import PreviewMedia from "./PreviewMedia";
 import ModalUserTag from "../modalUserTag/ModalUserTag";
 import fileAPI from "../../../services/api/fileAPI";
 import handleSubmitPost from "./handleSubmit";
+import toast from "react-hot-toast";
 
 const CreatePost = () => {
   const [newPostValue, setNewPostValue] = useState();
@@ -16,6 +17,14 @@ const CreatePost = () => {
   const [ortherFile, setOrtherFile] = useState();
   const [userTagged,setUserTagged] = useState([]);
 
+  const resetValue = () => {
+    setNewPostValue("");
+    setMediasPreviewUrl([]); 
+    setImgFile(null);
+    setVideoFile(null);
+    setUserTagged([])
+    setOrtherFile(null);
+  }
 //   useEffect(() => {
 //     console.log(userTagged);
 //   },[userTagged]);
@@ -109,7 +118,8 @@ const CreatePost = () => {
 //   hamdle submit
   const handleSumit = async() => {
     await handleSubmitPost(imgFile, videoFile, ortherFile, userTagged, newPostValue);
-
+    toast.success('Bài viết của bạn đã được đăng !');
+    resetValue();
   }
   return (
     <div className="create-post mt-3 mr-1 pt-5 pb-5 pl-4 pr-4 bg-white shadow-xss rounded-md">

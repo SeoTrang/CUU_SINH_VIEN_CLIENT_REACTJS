@@ -13,7 +13,7 @@ const ContentPost = ({contents}) => {
                         // console.log(content);
                         return (
                             content.type == 'img'?
-                            <img className='rounded-md' src={import.meta.env.VITE_API_URL+content.content} alt="" />
+                            <img className='rounded-md w-full' src={import.meta.env.VITE_API_URL+content.content} alt="" />
                             :
                             content.type == 'video' ? 
                             <video className='w-full rounded-md' controls>

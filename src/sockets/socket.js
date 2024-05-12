@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client';
 
-const URL = import.meta.env.VITE_API_URL;
+const URL = import.meta.env.VITE_WS_URL;
 
 console.log(URL);
 
