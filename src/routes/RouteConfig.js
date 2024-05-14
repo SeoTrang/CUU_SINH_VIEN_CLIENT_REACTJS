@@ -15,56 +15,68 @@ const RouteConfig = [
     path: "/",
     component: Home,
     layout: true,
+    requiresAuth: true,
   },
   {
     path: "/post/:id",
     component: PostPage,
     layout: true,
+    requiresAuth: true,
   },
   {
     path: "/chat",
     component: HomeChat,
     layout: true,
+    requiresAuth: true,
   },
   {
     path: "/chat/:conversation",
     component: Chat,
     layout: true,
+    requiresAuth: true,
   },
   {
     path: "/groups",
     component: HomeGroup,
     layout: true,
+    requiresAuth: true,
   },
   {
     path: "/group/:conversation",
     component: Group,
     layout: true,
+    requiresAuth: true,
   },
   {
     path: "/file-view",
     component: FileViewer,
     layout: true,
+    requiresAuth: true,
+    requiresAuth: true,
   },
   {
     path: "/login",
     component: Login,
     layout: false,
+    requiresAuth: false,
   },
   {
     path: "/register",
     component: Register,
     layout: false,
+    requiresAuth: false,
   },
   {
     path: "/friend",
     component: Friend,
     layout: true,
+    requiresAuth: true,
   },
   {
     path: "/detail-post/:postId",
     component: DetailPost,
     layout: true,
+    requiresAuth: true,
   }
 ];
 
