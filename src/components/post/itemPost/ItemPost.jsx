@@ -137,11 +137,11 @@ const ItemPost = ({post_item}) => {
                         <div className="reaction flex items-center">
                             <div  className="heart text-xl mr-2 hover:text-red-500 cursor-pointer">
                                 {
-                                    post.reactions.some((reaction) => reaction.user_id == user.id)
+                                    post.reactions.some((reaction) => reaction.user_id == user?.id)
                                     ?
-                                    <i onClick={() => {handleDeleteReaction(post.id,user.id)}} class="text-red-500 fa-solid fa-heart"></i>
+                                    <i onClick={() => {handleDeleteReaction(post.id,user?.id)}} class="text-red-500 fa-solid fa-heart"></i>
                                     :
-                                    <i onClick={() => {handleAddReaction(post.id,user.id)}} class="fa-regular fa-heart"></i>
+                                    <i onClick={() => {handleAddReaction(post.id,user?.id)}} class="fa-regular fa-heart"></i>
 
                                 }
                             </div>

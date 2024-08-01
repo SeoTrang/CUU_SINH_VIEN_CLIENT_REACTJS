@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { accessToken } from '../../constant/constant';
 
 const API_URL = import.meta.env.VITE_API_URL;
 // let accessToken = Cookies.get("accessToken");
@@ -17,9 +18,9 @@ const instance = axios.create({
 // Add a request interceptor
 instance.interceptors.request.use(
   (config) => {
-    const accessToken = Cookies.get("accessToken");
-    if (accessToken) {
-      config.headers['Authorization'] = `Bearer ${accessToken}`;
+    const accessToken1 = Cookies.get(accessToken);
+    if (accessToken1) {
+      config.headers['Authorization'] = `Bearer ${accessToken1}`;
     }
     return config;
   },

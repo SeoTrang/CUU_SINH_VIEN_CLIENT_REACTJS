@@ -46,5 +46,8 @@
     background-color: #e5efff;
 }
 
-
+#list-chat .box-list-chat{
+    overflow-y: scroll;
+    height: 70vh;
+}
 

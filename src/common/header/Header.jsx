@@ -7,6 +7,7 @@ import './Header.css';
 import Cookies from 'js-cookie';
 import { fetchUserData } from '../../redux/actions/userAction';
 import notificationAPI from '../../services/api/notificationAPI';
+import { accessToken } from '../../constant/constant';
 const Header = () => {
 
     const [dataNotification,setDataNotification] = useState();
@@ -20,7 +21,7 @@ const Header = () => {
     console.log(loading);
 
     useEffect(()=> {
-        let accessTokenTemp = Cookies.get("accessToken");
+        let accessTokenTemp = Cookies.get(accessToken);
         
         if(accessTokenTemp && !user){
             dispatch(fetchUserData());
@@ -37,6 +38,10 @@ const Header = () => {
     const handleNotificationClick = () => {
         setNotificationClick(!notificationClick);
     }
+
+    useEffect(() => {
+        console.log(user);
+    },[user])
     
     return (
         <div id='header' className=' w-full'>

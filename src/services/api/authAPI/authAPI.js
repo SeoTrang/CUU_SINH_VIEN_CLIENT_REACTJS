@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import axiosCustom from '../../../config/axiosBaseUrl/axiosCustom'
+import { accessToken, refreshToken } from '../../../constant/constant';
 
 const authAPI = {
     register: async(param)=> {
@@ -45,10 +46,10 @@ const authAPI = {
             console.log(result);
             
             if(result) {
-                let accessToken = result.accessToken;
-                let refreshToken = result.refreshToken;
-                Cookies.set("accessToken",accessToken);
-                Cookies.set("refreshToken",refreshToken);
+                let accessToken1 = result.accessToken;
+                let refreshToken1 = result.refreshToken;
+                Cookies.set(accessToken,accessToken1);
+                Cookies.set(refreshToken,refreshToken1);
                 return true;
             }
             return false;

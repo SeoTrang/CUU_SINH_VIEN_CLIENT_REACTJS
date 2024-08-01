@@ -11,13 +11,13 @@ import img from '../auth.svg';
 import logo from '../logo.svg';
 import authAPI from '../../../services/api/authAPI/authAPI';
 const Login = () => {
-    const [phone,setPhone] = useState();
+    const [email,setEmail] = useState();
     const [pass,setPass] = useState();
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        if(!phone || !pass) return toast.error('Vui lòng nhập đầy đủ thông tin !');
-        const result = await authAPI.login({phone: phone, pass: pass});
+        if(!email || !pass) return toast.error('Vui lòng nhập đầy đủ thông tin !');
+        const result = await authAPI.login({email: email, pass: pass});
         if(result) {
             toast.success('Đăng nhập thành công !');
             return navigate('/');
@@ -53,7 +53,7 @@ const Login = () => {
                                 <div className='mt-3'>
                                     <TextField 
                                     fullWidth
-                                    onChange={(e)=> {setPhone(e.target.value)}}
+                                    onChange={(e)=> {setEmail(e.target.value)}}
                                     id="outlined-basic" 
                                     label="Phone" 
                                     variant="outlined" />
